@@ -14,10 +14,14 @@ class Container extends Component {
     .then((response) => response.json())
     .then((obj) => console.log(obj.response));
     return (
-      <div>
-        <h1>Neighborhood</h1>
-        <List/>
-        <Map google={this.props.google} locations={this.state.locations} />
+      <div className='container-fluid'>
+        <div className='row'>
+          <h1>Neighborhood</h1>
+        </div>
+        <div className ='row'>
+          <List/>
+          <Map google={this.props.google} locations={this.state.locations} />
+        </div>
       </div>
     );
   }

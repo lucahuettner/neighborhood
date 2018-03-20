@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 class List extends Component {
   render() {
     return (
-      <ul>
-        <li></li>
-      </ul>
+      <div className='col-sm-3'>
+        <ul>
+          <li>Burgruine Hohentwiel</li>
+        </ul>
+      </div>
     );
   }
 }

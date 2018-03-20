@@ -18,7 +18,7 @@ class Map extends Component {
 
       const mapConfig = Object.assign({}, {
         center: {lat: 47.75857731, lng: 8.85481229}, // sets center of google map to Singen.
-        zoom: 14, // sets zoom. Lower numbers are zoomed further out.
+        zoom: 13, // sets zoom. Lower numbers are zoomed further out.
         mapTypeId: 'roadmap' // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
       });
 
@@ -51,12 +51,12 @@ class Map extends Component {
 
   render() {
     const style = { // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-          width: '100vw', // 90vw basically means take up 90% of the width screen. px also works.
+          // width: '100vw', // 90vw basically means take up 90% of the width screen. px also works.
           height: '85vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
         };
 
     return (// in our return function you must return a div with ref='map' and style.
-          <div ref="map" style={style}>
+          <div className='col-sm' ref="map" style={style}>
             loading map...
           </div>
         );
