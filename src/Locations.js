@@ -5,7 +5,7 @@ class Locations extends Component {
   render() {
     return (
       this.props.locations.map((location) => (
-        <li>{location.name}</li>
+        <li key={location.name}>{location.name}</li>
       ))
     );
   }

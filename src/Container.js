@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from './Map.js';
 import List from './List.js';
 import { GoogleApiWrapper } from 'google-maps-react';
+import {Route, Link} from 'react-router-dom';
 
 class Container extends Component {
   state = {
@@ -20,10 +21,15 @@ class Container extends Component {
     return (
       <div className='container-fluid'>
         <div className='row'>
-          <h1>Neighborhood</h1>
+          <div className='col'>
+            <Link to='/list'>List</Link>
+            <h1>Neighborhood</h1>
+          </div>
         </div>
         <div className ='row'>
-          <List locations={this.state.locations}/>
+          <Route path='/list' render={() => (
+            <List locations={this.state.locations}/>
+        )}/>
           <Map google={this.props.google} locations={this.state.locations} />
         </div>
       </div>
