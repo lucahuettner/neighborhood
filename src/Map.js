@@ -44,6 +44,8 @@ class Map extends Component {
       infowindow.marker = marker;
       infowindow.setContent(`<h4> ${marker.title} </h4>`);
       infowindow.open(this.map, marker);
+    } else {
+      infowindow.open(this.map, marker);
     }
   }
 

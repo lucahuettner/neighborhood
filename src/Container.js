@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './Map.js';
+import List from './List.js';
 import { GoogleApiWrapper } from 'google-maps-react';
 
 class Container extends Component {
@@ -15,6 +16,7 @@ class Container extends Component {
     return (
       <div>
         <h1>Neighborhood</h1>
+        <List/>
         <Map google={this.props.google} locations={this.state.locations} />
       </div>
     );
