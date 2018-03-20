@@ -6,7 +6,11 @@ import { GoogleApiWrapper } from 'google-maps-react';
 class Container extends Component {
   state = {
     locations: [
-      {name: 'Festungsruine Hohentwiel', location: {lat: 47.7642964, lng: 8.818025}}
+      {name: 'Festungsruine Hohentwiel', location: {lat: 47.7642964, lng: 8.818025}},
+      {name: 'Cineplex Singen', location: {lat: 47.7583784, lng: 8.8387182}},
+      {name: 'MC Donalds', location: {lat: 47.753089, lng: 8.85288}},
+      {name: 'Kentucky Fried Chicken', location: {lat: 47.7537526, lng: 8.853755}},
+      {name: 'Discothek Top-10', location: {lat: 47.7529114, lng: 8.8884115}},
     ]
   };
   render() {
@@ -19,7 +23,7 @@ class Container extends Component {
           <h1>Neighborhood</h1>
         </div>
         <div className ='row'>
-          <List/>
+          <List locations={this.state.locations}/>
           <Map google={this.props.google} locations={this.state.locations} />
         </div>
       </div>
