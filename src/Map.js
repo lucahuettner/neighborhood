@@ -40,7 +40,7 @@ class Map extends Component {
     }
   }
   populateInfoWindow(marker, infowindow) {
-    if (infowindow.marker != marker) {
+    if (infowindow.marker !== marker) {
       infowindow.marker = marker;
       infowindow.setContent(`<h4> ${marker.title} </h4>`);
       infowindow.open(this.map, marker);
