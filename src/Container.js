@@ -14,10 +14,25 @@ class Container extends Component {
       {name: 'Discothek Top-10', id: '4c268387136d20a16783e561', location: {lat: 47.7529114, lng: 8.8884115}},
     ]
   };
+  componentDidMount() {
+    let request = [];
+    const self = this;
+    this.state.locations.forEach((location) => {
+      fetch(`https://api.foursquare.com/v2/venues/${location.id}?client_id=3KDKYVPQIJ2BMFAWJB5K2EE4LUEOHPYZYJQN55SYCGY50GNW&client_secret=F0GMCYEDRANIHBSG5501YDGIF1IKDJL4CZBRUHUMCRAKK55J&ll=40.7,-74&query=sushi&v=20180210`)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res.response);
+        const foto = res.response.venue.bestPhoto;
+        location.img = `${foto.prefix}500x300${foto.suffix}`;
+        location.rating = res.response.venue.rating;
+        request.push(location)
+        self.setState({locations: request});
+        console.log(self.state);
+      });
+    });
+  }
   render() {
-    fetch('https://api.foursquare.com/v2/venues/4c7d03d548c6236a972a6311?client_id=3KDKYVPQIJ2BMFAWJB5K2EE4LUEOHPYZYJQN55SYCGY50GNW&client_secret=F0GMCYEDRANIHBSG5501YDGIF1IKDJL4CZBRUHUMCRAKK55J&ll=40.7,-74&query=sushi&v=20180210')
-    .then((response) => response.json())
-    .then((obj) => console.log(obj.response));
+
     return (
       <div className='container-fluid'>
         <div className='row'>
