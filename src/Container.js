@@ -7,11 +7,11 @@ import {Route, Link} from 'react-router-dom';
 class Container extends Component {
   state = {
     locations: [
-      {name: 'Festungsruine Hohentwiel', location: {lat: 47.7642964, lng: 8.818025}},
-      {name: 'Cineplex Singen', location: {lat: 47.7583784, lng: 8.8387182}},
-      {name: 'MC Donalds', location: {lat: 47.753089, lng: 8.85288}},
-      {name: 'Kentucky Fried Chicken', location: {lat: 47.7537526, lng: 8.853755}},
-      {name: 'Discothek Top-10', location: {lat: 47.7529114, lng: 8.8884115}},
+      {name: 'Festungsruine Hohentwiel', id: '4c7d03d548c6236a972a6311', location: {lat: 47.7642964, lng: 8.818025}},
+      {name: 'Cineplex Singen', id: '4c337afb3896e21e0b1bea90', location: {lat: 47.7583784, lng: 8.8387182}},
+      {name: 'MC Donalds', id: '4de6761bb0fb5cbf0eb1ae6f', location: {lat: 47.753089, lng: 8.85288}},
+      {name: 'Kentucky Fried Chicken', id: '53bc13ec498e617a4c4afcd2', location: {lat: 47.7537526, lng: 8.853755}},
+      {name: 'Discothek Top-10', id: '4c268387136d20a16783e561', location: {lat: 47.7529114, lng: 8.8884115}},
     ]
   };
   render() {
