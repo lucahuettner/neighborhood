@@ -21,8 +21,10 @@ class Container extends Component {
     return (
       <div className='container-fluid'>
         <div className='row'>
-          <div className='col'>
+          <div className='col-sm-1'>
             <Link to='/list'>List</Link>
+          </div>
+          <div className='col-sm-11'>
             <h1>Neighborhood</h1>
           </div>
         </div>

@@ -6,7 +6,7 @@ class List extends Component {
   render() {
     return (
       <div className='col-sm-3'>
-        <ul>
+        <ul className='list-unstyled text-left'>
           <Locations locations={this.props.locations}/>
         </ul>
       </div>
