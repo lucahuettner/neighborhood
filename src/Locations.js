@@ -9,7 +9,7 @@ class Locations extends Component {
     return (
       this.props.locations.map((location) => (
         <li key={location.id}>
-          <Link to={`/list/${location.id}`}>
+          <Link onClick={() => this.props.animateMarker(location.id)} to={`/list/${location.id}`}>
             <h4>{location.name}</h4>
           </Link>
           <Route path={`/list/${location.id}`} render={() => (

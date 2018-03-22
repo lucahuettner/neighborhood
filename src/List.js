@@ -7,7 +7,9 @@ class List extends Component {
     return (
       <div className='col-sm-3'>
         <ul className='list-unstyled text-left'>
-          <Locations locations={this.props.locations}/>
+          <Locations
+            locations={this.props.locations}
+            animateMarker={this.props.animateMarker}/>
         </ul>
       </div>
     );

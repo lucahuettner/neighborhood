@@ -25,12 +25,24 @@ class Container extends Component {
         const foto = res.response.venue.bestPhoto;
         location.img = `${foto.prefix}500x300${foto.suffix}`;
         location.rating = res.response.venue.rating;
-        request.push(location)
+        request.push(location);
         self.setState({locations: request});
         console.log(self.state);
       });
     });
   }
+  animateMarker = (id) => {
+    console.log(this.state);
+    let prevLocations = this.state.locations;
+    prevLocations.forEach((location) => {
+      if (location.id === id) {
+        location.animate = true;
+      } else {
+        location.animate = false;
+      }
+    });
+    this.setState({locations: prevLocations});
+  };
   render() {
 
     return (
@@ -45,9 +57,16 @@ class Container extends Component {
         </div>
         <div className ='row'>
           <Route path='/list' render={() => (
-            <List locations={this.state.locations}/>
+            <List
+              locations={this.state.locations}
+              animateMarker={this.animateMarker}
+              />
         )}/>
-          <Map google={this.props.google} locations={this.state.locations} />
+          <Map
+            google={this.props.google}
+            locations={this.state.locations}
+            animateMarker={this.animateMarker}
+            />
         </div>
       </div>
     );

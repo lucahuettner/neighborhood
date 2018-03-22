@@ -8,7 +8,7 @@ class Map extends Component {
   }
 
   loadMap() {
-    const self = this
+    const self = this;
     let markers = [];
     if (this.props && this.props.google) { // checks to make sure that props have been passed
       const {google} = this.props; // sets props equal to google
@@ -31,12 +31,14 @@ class Map extends Component {
         const marker = new google.maps.Marker({ // creates a new Google maps Marker object.
           position: {lat: location.location.lat, lng: location.location.lng}, // sets position of marker to specified location
           map: this.map, // sets markers to appear on the map we just created on line 35
-          title: location.name // the title of the marker is set to the name of the location
+          title: location.name, // the title of the marker is set to the name of the location
+          animation: location.animate ? maps.Animation.BOUNCE : null
         });
         markers.push(marker);
         marker.addListener('click', function() {
           self.populateInfoWindow(this, largeInfowindow);
-          self.props.history.push(`/list/${location.id}`); // set router to location
+          self.props.history.push(`/list/${location.id}`); // set route to location
+          self.props.animateMarker(location.id);
         });
       });
     }
