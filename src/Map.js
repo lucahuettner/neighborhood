@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {withRouter} from 'react-router';
 
 class Map extends Component {
   componentDidUpdate() {
@@ -35,6 +36,7 @@ class Map extends Component {
         markers.push(marker);
         marker.addListener('click', function() {
           self.populateInfoWindow(this, largeInfowindow);
+          self.props.history.push(`/list/${location.id}`); // set router to location
         });
       });
     }
@@ -63,4 +65,4 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default withRouter(Map);
