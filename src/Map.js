@@ -27,7 +27,7 @@ class Map extends Component {
 
       const largeInfowindow = new maps.InfoWindow();
 
-      this.props.locations.forEach(location => { // iterate through locations saved in state
+      this.props.filterCategory().forEach(location => { // iterate through locations saved in state
         const marker = new google.maps.Marker({ // creates a new Google maps Marker object.
           position: {lat: location.location.lat, lng: location.location.lng}, // sets position of marker to specified location
           map: this.map, // sets markers to appear on the map we just created on line 35

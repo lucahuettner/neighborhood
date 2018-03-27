@@ -84,6 +84,7 @@ class Container extends Component {
             google={this.props.google}
             locations={this.state.locations}
             animateMarker={this.animateMarker}
+            filterCategory={this.filterCategory}
             />
         </div>
       </div>
