@@ -12,7 +12,8 @@ class Container extends Component {
       {name: 'MC Donalds', id: '4de6761bb0fb5cbf0eb1ae6f', location: {lat: 47.753089, lng: 8.85288}, category: 'restaurants'},
       {name: 'Kentucky Fried Chicken', id: '53bc13ec498e617a4c4afcd2', location: {lat: 47.7537526, lng: 8.853755}, category: 'restaurants'},
       {name: 'Discothek Top-10', id: '4c268387136d20a16783e561', location: {lat: 47.7529114, lng: 8.8884115}, category: 'leisure'},
-    ]
+    ],
+    currentCategory: 'all'
   };
   componentDidMount() {
     let request = [];
@@ -30,7 +31,7 @@ class Container extends Component {
         console.log(self.state);
       });
     });
-  }
+  };
   animateMarker = (id) => {
     console.log(this.state);
     let prevLocations = this.state.locations;
@@ -43,8 +44,23 @@ class Container extends Component {
     });
     this.setState({locations: prevLocations});
   };
+  filterCategory = () => {
+    const self = this;
+    const filtered = self.state.locations.filter((location) => {
+      if (self.state.currentCategory === 'all') {
+        return true;
+      } else {
+        return location.category === self.state.currentCategory;
+      }
+    });
+    console.log(filtered);
+    return filtered;
+  };
+  updateCategory = (category) => {
+    this.setState({currentCategory: category});
+  };
   render() {
-
+    // this.filterCategory();
     return (
       <div className='container-fluid'>
         <div className='row'>
@@ -60,6 +76,8 @@ class Container extends Component {
             <List
               locations={this.state.locations}
               animateMarker={this.animateMarker}
+              filterCategory={this.filterCategory}
+              updateCategory={this.updateCategory}
               />
         )}/>
           <Map

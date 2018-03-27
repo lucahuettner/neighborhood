@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import Locations from './Locations.js';
 
 class List extends Component {
-  state = {
-    selected: 'all'
-  };
   render() {
     return (
       <div className='col-sm-3'>
-        <select defaultValue='all' onChange={(e) => this.setState({selected: e.target.value})}>
+        <select defaultValue='all' onChange={(e) => this.props.updateCategory(e.target.value)}>
           <option value='all'>All</option>
           <option value='restaurants'>Restaurants</option>
           <option value='leisure'>Leisure activities</option>
@@ -17,7 +14,7 @@ class List extends Component {
         </select>
         <ul className='list-unstyled text-left'>
           <Locations
-            locations={this.props.locations.filter((location) => location.category === this.state.selected)}
+            locations={this.props.filterCategory()}
             animateMarker={this.props.animateMarker}/>
         </ul>
       </div>
