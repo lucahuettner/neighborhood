@@ -3,6 +3,7 @@ import Map from './Map.js';
 import List from './List.js';
 import { GoogleApiWrapper } from 'google-maps-react';
 import {Route, Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 
 class Container extends Component {
   state = {
@@ -53,11 +54,11 @@ class Container extends Component {
         return location.category === self.state.currentCategory;
       }
     });
-    console.log(filtered);
     return filtered;
   };
   updateCategory = (category) => {
     this.setState({currentCategory: category});
+    this.props.history.push(`/list`);
   };
   render() {
     // this.filterCategory();
@@ -94,4 +95,4 @@ class Container extends Component {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyARmShZ82k5hknINJ7jMndOnRDNrEas9Sk',
-})(Container);
+})(withRouter(Container));
