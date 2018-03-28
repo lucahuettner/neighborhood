@@ -14,8 +14,7 @@ class List extends Component {
         </select>
         <ul className='list-unstyled text-left'>
           <Locations
-            locations={this.props.filterCategory()}
-            animateMarker={this.props.animateMarker}/>
+            locations={this.props.filterCategory()}/>
         </ul>
       </div>
     );

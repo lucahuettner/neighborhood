@@ -32,13 +32,12 @@ class Map extends Component {
           position: {lat: location.location.lat, lng: location.location.lng}, // sets position of marker to specified location
           map: this.map, // sets markers to appear on the map we just created on line 35
           title: location.name, // the title of the marker is set to the name of the location
-          animation: location.animate ? maps.Animation.BOUNCE : null
+          animation: this.props.location.pathname === `/list/${location.id}` ? maps.Animation.BOUNCE : null
         });
         markers.push(marker);
         marker.addListener('click', function() {
           self.populateInfoWindow(this, largeInfowindow);
           self.props.history.push(`/list/${location.id}`); // set route to location
-          self.props.animateMarker(location.id);
         });
       });
     }

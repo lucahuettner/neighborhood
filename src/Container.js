@@ -33,18 +33,6 @@ class Container extends Component {
       });
     });
   };
-  animateMarker = (id) => {
-    console.log(this.state);
-    let prevLocations = this.state.locations;
-    prevLocations.forEach((location) => {
-      if (location.id === id) {
-        location.animate = true;
-      } else {
-        location.animate = false;
-      }
-    });
-    this.setState({locations: prevLocations});
-  };
   filterCategory = () => {
     const self = this;
     const filtered = self.state.locations.filter((location) => {
@@ -76,7 +64,6 @@ class Container extends Component {
           <Route path='/list' render={() => (
             <List
               locations={this.state.locations}
-              animateMarker={this.animateMarker}
               filterCategory={this.filterCategory}
               updateCategory={this.updateCategory}
               />
@@ -84,7 +71,6 @@ class Container extends Component {
           <Map
             google={this.props.google}
             locations={this.state.locations}
-            animateMarker={this.animateMarker}
             filterCategory={this.filterCategory}
             />
         </div>
