@@ -46,7 +46,7 @@ class Container extends Component {
   };
   updateCategory = (category) => {
     this.setState({currentCategory: category});
-    this.props.history.push(`/list`);
+    this.props.history.push(`/list`); // reset route to list view
   };
   render() {
     return (
