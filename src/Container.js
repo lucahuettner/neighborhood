@@ -49,7 +49,6 @@ class Container extends Component {
     this.props.history.push(`/list`);
   };
   render() {
-    // this.filterCategory();
     return (
       <div className='container-fluid'>
         <div className='row'>
