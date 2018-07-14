@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Locations from './Locations.js';
+import {Route, Link} from 'react-router-dom';
 
 class List extends Component {
   render() {
@@ -16,6 +17,7 @@ class List extends Component {
           <Locations
             locations={this.props.filterCategory()}/>
         </ul>
+        <Link to='/'>Close List</Link>
       </div>
     );
   }
